@@ -1,0 +1,19 @@
+{% extends 'myApp/base.html' %}
+{% block title %}Edit Profile{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated and user.id == profile.user.id %}
+   <h1>Edit Profile</h1>
+   <br/><br/>
+
+   <div class="mb-3">
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Update Profile</button>
+    </div>
+{% else %}
+    Error, user not logged in
+{% endif %}
+ 
+{% endblock %}

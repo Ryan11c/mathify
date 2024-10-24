@@ -1,0 +1,20 @@
+{% extends 'myApp/base.html' %}
+{% block title %}Create new post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+   <h1>Add Post</h1>
+   <br/><br/>
+
+   <div class="mb-3">
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Post</button>
+    </div>
+{% else %}
+    Error, user not logged in
+{% endif %}
+ 
+{% endblock %}

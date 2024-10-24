@@ -1,0 +1,63 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title_tag }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ post.title }}</h1>
+    <small> 
+        {% if post.author.profile.profile_pic %}
+            <img src="{{ post.author.profile.profile_pic.url }}" width=5% class="rounded-circle">
+        {% else %}
+            <img src="{% static 'myApp/images/defaultpfp.png' %}" width=5% class="rounded-circle">
+        {% endif %}
+        {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }} 
+        {% if user.is_authenticated and user.id == post.author.id%}
+            - <a href="{% url 'update_post' post.pk %}">(Edit)</a>
+            <a href="{% url 'delete_post' post.pk %}" class="card-link">Delete</a>
+        {% endif %}
+    </small>
+    <hr>
+
+    <br/>
+    {% if post.header_image %}
+        <img src="{{ post.header_image.url }}" alt="Post Image" class="img-fluid">
+    {% endif %}
+    <br/>
+    {{ post.body|safe }}
+    <br/>
+
+    <a href="{% url 'blog_view' %}" class="btn btn-secondary">Back</a>
+    <form action="{% url 'like_post' post.pk %}" method="POST">
+        {% csrf_token %}
+    {% if user.is_authenticated %}
+        {% if liked %}
+            <button type="submit", name="post_id", value="{{ post.id }}", 
+            class="btn btn-danger btn-sm">Unlike</button> 
+        {% else %}
+            <button type="submit", name="post_id", value="{{ post.id }}", 
+            class="btn btn-primary btn-sm">Like</button> 
+        {% endif %}
+    {% endif %}
+    {{ total_likes }} Likes
+    </form>
+
+    <br/>
+    <hr>
+    <h2>Comments</h2>
+    {% if not post.comments.all %}
+        Very empty here... <a href="#">Comment</a>
+    {% else %}
+        {% for comment in post.comments.all %}
+            <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
+            <br/>
+            {{ comment.body }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <hr>
+
+
+{% endblock %}
+

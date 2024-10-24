@@ -1,0 +1,19 @@
+{% extends 'myApp/base.html' %}
+{% block title %}Delete Post{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated and user.id == post.author.id %}
+   <h1>Delete Post</h1>
+   <br/><br/>
+    <h3>Delete: {{ post.title }}</h3>
+   <div class="mb-3">
+        <form method="POST">
+        {% csrf_token %}
+        <strong>Are you sure?</strong> <br/>
+        <button class="btn btn-secondary">Delete Post</button>
+    </div>
+{% else %}
+    Error, user not logged in
+{% endif %}
+ 
+{% endblock %}

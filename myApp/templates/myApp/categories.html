@@ -1,0 +1,32 @@
+{% extends 'myApp/base.html' %}
+
+{% block content %}
+
+{% if category_post %}
+
+    <h1>{{ cats }}</h1>
+
+    {% for post in category_post %}
+    <div class="col-md-4 mb-4"> <!-- Adjust the column size as needed -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'article_details' pk=post.pk %}">{{ post.title }}</a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}
+                </h6>
+                <p class="card-text">{{ post.body|safe|truncatewords:30 }}</p> <!-- Truncate for preview -->
+
+                {% if user.is_authenticated and user.id == post.author.id %}
+                    <a href="{% url 'update_post' post.pk %}" class="card-link">Edit</a>
+                    <a href="{% url 'delete_post' post.pk %}" class="card-link">Delete</a>
+                {%  endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{%  else %}
+    <p>There are no posts under this category</p>
+{%  endif %}
+{% endblock %}

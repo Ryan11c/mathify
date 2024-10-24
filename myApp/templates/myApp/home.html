@@ -1,0 +1,36 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home - Mathify
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'myApp/css/home.css' %}">
+    <main class="container">
+        <h2>Choose a Calculator</h2>
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <div class="calculator-icon">➗</div>
+                <h3 class="calculator-title">Row Reduction</h3>
+                <p class="calculator-description">Solve systems of linear equations</p>
+            </div>
+            <div class="calculator-card">
+                <div class="calculator-icon">01</div>
+                <h3 class="calculator-title">Binary Conversion</h3>
+                <p class="calculator-description">Convert between decimal and binary</p>
+            </div>
+            <div class="calculator-card">
+                <div class="calculator-icon">∫</div>
+                <h3 class="calculator-title">Integration</h3>
+                <p class="calculator-description">Calculate definite and indefinite integrals</p>
+            </div>
+            <div class="calculator-card">
+                <div class="calculator-icon">d/dx</div>
+                <h3 class="calculator-title">Derivatives</h3>
+                <p class="calculator-description">Compute derivatives of functions</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

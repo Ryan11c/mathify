@@ -1,0 +1,15 @@
+{% extends 'myApp/base.html' %}
+{% block title %}Edit Setting{% endblock %}
+{% block content %}
+
+   <h1>Edit Setting</h1>
+   <br/><br/>
+
+   <div class="mb-3">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Update Setting</button>
+    </div>
+ 
+{% endblock %}
