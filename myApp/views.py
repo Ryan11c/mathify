@@ -92,7 +92,6 @@ class UpdatePostView(UpdateView):
         return context
     
 
-
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'myApp/delete_post.html'
