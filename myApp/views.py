@@ -7,9 +7,15 @@ from .forms import PostForm, EditForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
+
 def HomeView(request):
     cat_menu = Category.objects.all()  # Get all categories
     return render(request, 'myApp/home.html', {'cat_menu': cat_menu})
+
+
+def BinaryCalculator(request):
+    cat_menu = Category.objects.all()
+    return render(request, 'myApp/binary_calculator.html', {'cat_menu': cat_menu})
 
 
 def LikeView(request, pk):
@@ -28,7 +34,6 @@ class BlogView(ListView):
     model = Post
     template_name = 'myApp/blog.html'
     ordering = ['-post_date']
-    
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
         context = super(BlogView, self).get_context_data(*args, **kwargs)
@@ -44,7 +49,6 @@ def CategoryView(request, cats):
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'myApp/article_details.html'
-
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
         context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
@@ -53,7 +57,6 @@ class ArticleDetailView(DetailView):
         liked = False
         if stuff.likes.filter(id=self.request.user.id).exists():
             liked = True
-
         context["cat_menu"] = cat_menu
         context["total_likes"] = total_likes
         context["liked"] = liked

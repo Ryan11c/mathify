@@ -1,0 +1,115 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333; /* Dark grey for the background */
+    color: #f1f1f1; /* Soft white for text */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box; /* Ensures padding and borders are included in the total width and height */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 12px; /* Rounded corners for a soft look */
+    background-color: #424242; /* Medium-dark grey for section backgrounds */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Darker shadow for more depth */
+    transition: all 0.3s ease-in-out;
+    max-width: 600px;
+    width: 90%;
+}
+
+h2 {
+    color: #FFEB3B; /* Vivid yellow for headings */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+input[type="number"], button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border: 2px solid #FFEB3B; /* Yellow border for focus */
+}
+
+input[type="number"] {
+    background-color: #616161; /* Lighter grey for input fields */
+    color: #f1f1f1;
+}
+
+button {
+    background-color: #FFEB3B; /* Bright yellow for buttons */
+    color: #333; /* Dark text on buttons for contrast */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #CDDC39; /* A different shade of yellow for hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+#binaryDisplay, #randomBinary, #binaryOutput {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFEB3B; /* Yellow for binary displays */
+}
+
+.error {
+    color: #FF6347;
+    margin-top: 10px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    height: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+    to {
+        opacity: 1;
+        height: auto;
+    }
+}
+
+.result, .incorrect {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.result {
+    color: #8BC34A; /* Light green for correct results */
+}
+
+.incorrect {
+    color: #F44336; /* Red for incorrect results */
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

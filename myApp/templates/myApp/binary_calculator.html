@@ -1,0 +1,41 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Binary Calculator
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'myApp/css/binary_calculator.css' %}">
+    <div class="container">
+        <section id="tutorial" class="section-tutorial">
+            <h2>Learn How to Convert Numbers to Binary</h2>
+            <div id="explanation">
+                <p>Enter a number to see how it is converted into binary using the division method (maximum value 256):</p>
+                <input type="number" id="decimalForTutorial" placeholder="Enter a decimal number (0-256)" oninput="showConversionSteps()" max="256">
+                <div id="conversionSteps"></div>
+                <div id="errorTutorial" class="error"></div>
+            </div>
+        </section>
+
+        <section id="interactive" class="section-interactive">
+            <h2>Interactive Binary Conversion</h2>
+            <label for="decimalInput">Enter a Decimal Number (max 2048):</label>
+            <input type="number" id="decimalInput" placeholder="Enter a decimal number (0-2048)" oninput="convertToBinary()">
+            <p>Binary Representation: <span id="binaryOutput">0000 0000</span></p>
+            <div id="errorInteractive" class="error"></div>
+        </section>
+
+        <section id="game" class="section-game">
+            <h2>Binary Game</h2>
+            <p>What number is this binary?</p>
+            <div id="randomBinary">0101 0101</div>
+            <input type="number" id="userInput" placeholder="Enter the decimal number"/>
+            <button onclick="checkAnswer()">Check Answer</button>
+            <button onclick="generateRandomBinary()">Restart</button>
+            <div id="result"></div>
+            <div id="streak">Streak: 0</div>
+        </section>
+    </div>
+    <script src="{% static 'myApp/js/binary_calculator.js' %}"></script>
+{% endblock %}
