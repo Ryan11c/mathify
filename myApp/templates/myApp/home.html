@@ -5,7 +5,6 @@
     Home - Mathify
 {% endblock %}
 
-
 {% block content %}
 <link rel="stylesheet" href="{% static 'myApp/css/home.css' %}">
     <main class="container">
@@ -29,9 +28,11 @@
                 <p class="calculator-description">Calculate definite and indefinite integrals</p>
             </div>
             <div class="calculator-card">
+                <a href="{% url 'derivative_calculator' %}">
                 <div class="calculator-icon">d/dx</div>
                 <h3 class="calculator-title">Derivatives</h3>
                 <p class="calculator-description">Compute derivatives of functions</p>
+                </a>
             </div>
         </div>
     </main>
