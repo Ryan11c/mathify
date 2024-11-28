@@ -1,25 +1,14 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #333; /* Dark grey for the background */
-    color: #f1f1f1; /* Soft white for text */
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-*, *:before, *:after {
-    box-sizing: border-box; /* Ensures padding and borders are included in the total width and height */
-}
-
 .container {
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: #fff;
 }
 
-section {
+.container section {
     margin-bottom: 40px;
     padding: 30px;
     border-radius: 12px; /* Rounded corners for a soft look */
@@ -30,13 +19,13 @@ section {
     width: 90%;
 }
 
-h2 {
+.container h2 {
     color: #FFEB3B; /* Vivid yellow for headings */
     font-size: 28px;
     margin-bottom: 20px;
 }
 
-input[type="number"], button {
+.container input[type="number"], button {
     padding: 15px 30px;
     border-radius: 5px;
     width: 100%;
@@ -46,12 +35,12 @@ input[type="number"], button {
     border: 2px solid #FFEB3B; /* Yellow border for focus */
 }
 
-input[type="number"] {
+.container input[type="number"] {
     background-color: #616161; /* Lighter grey for input fields */
     color: #f1f1f1;
 }
 
-button {
+.container button {
     background-color: #FFEB3B; /* Bright yellow for buttons */
     color: #333; /* Dark text on buttons for contrast */
     border: none;
@@ -60,7 +49,7 @@ button {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
+.container button:hover {
     background-color: #CDDC39; /* A different shade of yellow for hover */
     transform: scale(1.05); /* Slightly increase size on hover */
 }
