@@ -6,22 +6,28 @@
 {% endblock %}
 
 {% block content %}
-<h1>Derivative Calculator</h1>
-<div class="input-container">
-    <label for="function">Enter a function:</label>
-    <input type="text" id="function" placeholder="e.g., x^2 + sin(x)" />
+<link rel="stylesheet" href="{% static 'myApp/css/derivative_calculator.css' %}">
+<div class="deri-body">
+    <h1>Derivative Calculator</h1>
+    <div class="input-container">
+        <label for="function">Enter a function:</label>
+        <input type="text" id="function" placeholder="e.g., x^2 + sin(x)" />
 
-    <label for="variable">Enter the variable:</label>
-    <input type="text" id="variable" placeholder="e.g., x" />
+        <label for="variable">Enter the variable:</label>
+        <input type="text" id="variable" placeholder="e.g., x" />
 
-    <button onclick="calculateDerivative()">Calculate Derivative</button>
+        <button onclick="calculateDerivative()">Calculate Derivative</button>
+    </div>
+
+    <div class="output-deriv">
+        <h2>Result:</h2>
+            <pre id="result"></pre>
+
+        <h2>Steps:</h2>
+            <pre id="steps"></pre>
+    </div>
+    
 </div>
-
-<h2>Result:</h2>
-    <pre id="result"></pre>
-
-<h2>Steps:</h2>
-    <pre id="steps"></pre>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <script src="{% static 'myApp/js/derivative_calculator.js' %}"></script>
