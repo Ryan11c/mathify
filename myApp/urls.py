@@ -1,6 +1,6 @@
 #from . import views
 from django.urls import path
-from .views import HomeView, BlogView, ArticleDetailView, AddPost, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, LikeView, BinaryCalculator, DerivativeCalculator
+from .views import HomeView, BlogView, ArticleDetailView, AddPost, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, LikeView, BinaryCalculator, DerivativeCalculator, RowReducer
 
 urlpatterns = [
     path('', HomeView, name='home'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('like/<int:pk>', LikeView, name='like_post'),
     path('binary-calculator/', BinaryCalculator, name='binary_calculator'),
     path('derivative-calculator/', DerivativeCalculator, name='derivative_calculator'),
+    path('row-reducer/', RowReducer, name='row_reducer'),
 ]

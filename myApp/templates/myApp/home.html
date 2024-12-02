@@ -11,9 +11,11 @@
         <h2>Choose a Calculator</h2>
         <div class="calculator-grid">
             <div class="calculator-card">
+                <a href="{% url 'row_reducer' %}">
                 <div class="calculator-icon">R ↔ R</div>
                 <h3 class="calculator-title">Row Reduction</h3>
                 <p class="calculator-description">Solve systems of linear equations</p>
+                </a>
             </div>
             <div class="calculator-card">
                 <a href="{% url 'binary_calculator' %}">

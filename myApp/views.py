@@ -17,9 +17,15 @@ def BinaryCalculator(request):
     cat_menu = Category.objects.all()
     return render(request, 'myApp/binary_calculator.html', {'cat_menu': cat_menu})
 
+
 def DerivativeCalculator(request):
     cat_menu = Category.objects.all()
     return render(request, 'myApp/derivative_calculator.html', {'cat_menu': cat_menu})
+
+
+def RowReducer(request):
+    cat_menu = Category.objects.all()
+    return render(request, 'myApp/row_reducer.html', {'cat_menu': cat_menu})
 
 
 def LikeView(request, pk):
