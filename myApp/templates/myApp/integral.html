@@ -1,0 +1,38 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Integral Calculator
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'myApp/css/integral_calculator.css' %}">
+<div class="container">
+    <h1>Integral Calculator</h1>
+    <label for="functionInput">Enter the function \( f(x) \):</label>
+    <input
+      type="text"
+      id="functionInput"
+      placeholder="e.g., 3*x^2 + 2*x + 1, sin(x), exp(x)"
+    />
+
+    <label for="integralType">Choose integral type:</label>
+    <select id="integralType">
+      <option value="indefinite">Indefinite Integral</option>
+      <option value="definite">Definite Integral</option>
+    </select>
+
+    <div id="definiteInputs" style="display: none">
+      <label for="lowerLimit">Lower Limit (a):</label>
+      <input type="number" id="lowerLimit" />
+      <label for="upperLimit">Upper Limit (b):</label>
+      <input type="number" id="upperLimit" />
+    </div>
+
+    <button id="calculate">Calculate</button>
+    <div id="results"></div>
+  </div>
+  <script src="libs\algebrite.bundle-for-browser.js"></script>
+  <script src="script.js"></script>
+</body>
+{% endblock %}

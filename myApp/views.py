@@ -23,6 +23,11 @@ def DerivativeCalculator(request):
     return render(request, 'myApp/derivative_calculator.html', {'cat_menu': cat_menu})
 
 
+def Integral(request):
+    cat_menu = Category.objects.all()
+    return render(request, 'myApp/integral.html', {'cat_menu': cat_menu})
+
+
 def RowReducer(request):
     cat_menu = Category.objects.all()
     return render(request, 'myApp/row_reducer.html', {'cat_menu': cat_menu})
