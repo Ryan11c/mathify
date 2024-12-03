@@ -1,6 +1,7 @@
 # Mathify
 Full-stack application using Python Django. Users can log in and discuss various math problems and use the built-in calculators provided by our website.
 
+<<<<<<< HEAD
 # Setup: 
 The first thing to do is to clone the repository:
 $ git clone https://github.com/Ryan11c/mathify.git 
