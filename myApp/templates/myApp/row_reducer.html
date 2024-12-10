@@ -1,0 +1,22 @@
+
+<h1>Matrix Row Reduction (RREF)</h1>
+<div class="input-container">
+    <label for="rows">Enter number of rows:</label>
+    <input type="number" id="rows" min="1" max="10" />
+
+    <label for="columns">Enter number of columns:</label>
+    <input type="number" id="columns" min="1" max="10" />
+
+    <button onclick="initializeMatrix()">Initialize Matrix</button>
+</div>
+
+<div id="matrix-input"></div>
+    <button onclick="performRowReduction()">Perform Row Reduction</button>
+
+    <h2>Original Matrix:</h2>
+    <pre id="original-matrix"></pre>
+
+    <h2>Row-Reduced Matrix (RREF):</h2>
+    <pre id="reduced-matrix"></pre>
+
+    <script src="script.js"></script>
