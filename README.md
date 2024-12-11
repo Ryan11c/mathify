@@ -1,4 +1,4 @@
-# Mathify
+# Mathify 😀
 Full-stack application using Python Django. Users can log in and discuss various math problems and use the built-in calculators provided by our website.
 
 # Setup: 
@@ -17,3 +17,5 @@ Full-stack application using Python Django. Users can log in and discuss various
 # Once pip has finished downloading the dependencies: 
 * (env)$ cd myProject 
 * (env)$ python manage.py runserver
+
+# This project was very fun to make! I hope you guys enjoy it too 👍
