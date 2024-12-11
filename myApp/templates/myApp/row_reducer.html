@@ -18,10 +18,14 @@
         <label for="columns">Enter number of columns:</label>
         <input type="number" id="columns" min="1" max="10" />
 
-        <button onclick="initializeMatrix()">Initialize Matrix</button>
+        <div>
+            <button onclick="initializeMatrix()">Initialize Matrix</button>
+        </div>
 
-        <div id="matrix-input"></div>
-        <button onclick="performRowReduction()">Perform Row Reduction</button>
+        <div>
+            <div id="matrix-input"></div>
+            <button onclick="performRowReduction()">Perform Row Reduction</button>
+        </div>
     </div>
 
     <div class="output-container">
