@@ -17,7 +17,14 @@ Full-stack application using Python Django. Users can log in and discuss various
 * (venv)$ pip install -r requirements.txt 
 * Note the (venv) in front of the prompt. This indicates that this terminal session operates in a virtual environment.
 
+# Create your own secret key:
+* Create a .env file in myProject directory
+* Inside, put SECRET_KEY=*******
+* replace ******* with your secret key
+
 # Once pip has finished downloading the dependencies: 
+* (venv)$ python manage.py makemigrations
+* (venv)$ python manage.py migrate
 * (venv)$ python manage.py runserver
 
 # This project was very fun to make! I hope you guys enjoy it too 👍
