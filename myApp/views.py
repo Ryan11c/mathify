@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 
 
 def HomeView(request):
-    cat_menu = Category.objects.all()  # Get all categories
+    cat_menu = Category.objects.all()  
     return render(request, 'myApp/home.html', {'cat_menu': cat_menu})
 
 
@@ -58,7 +58,12 @@ class BlogView(ListView):
 
 def CategoryView(request, cats):
     category_post = Post.objects.filter(category=cats.title().replace('-', ' '))
-    return render(request, 'myApp/categories.html', {'cats': cats.title().replace('-', ' '), 'category_post': category_post})
+    cat_menu = Category.objects.all()
+    return render(request, 'myApp/categories.html', {
+        'cats': cats.title().replace('-', ' '),
+        'category_post': category_post,
+        'cat_menu': cat_menu
+    })
 
 
 class ArticleDetailView(DetailView):

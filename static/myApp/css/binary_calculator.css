@@ -11,38 +11,38 @@
 .container section {
     margin-bottom: 40px;
     padding: 30px;
-    border-radius: 12px; /* Rounded corners for a soft look */
-    background-color: #424242; /* Medium-dark grey for section backgrounds */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Darker shadow for more depth */
+    border-radius: 12px; 
+    background-color: #424242;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
     transition: all 0.3s ease-in-out;
     max-width: 600px;
     width: 90%;
 }
 
 .container h2 {
-    color: #FFEB3B; /* Vivid yellow for headings */
+    color: #FFEB3B; 
     font-size: 28px;
     margin-bottom: 20px;
 }
 
-.container input[type="number"], button {
+.container input[type="number"], .container button {
     padding: 15px 30px;
     border-radius: 5px;
     width: 100%;
     display: block;
     margin-bottom: 20px;
     font-size: 18px;
-    border: 2px solid #FFEB3B; /* Yellow border for focus */
+    border: 2px solid #FFEB3B;
 }
 
 .container input[type="number"] {
-    background-color: #616161; /* Lighter grey for input fields */
+    background-color: #616161; 
     color: #f1f1f1;
 }
 
 .container button {
-    background-color: #FFEB3B; /* Bright yellow for buttons */
-    color: #333; /* Dark text on buttons for contrast */
+    background-color: #FFEB3B; 
+    color: #333; 
     border: none;
     cursor: pointer;
     font-weight: bold;
@@ -50,14 +50,14 @@
 }
 
 .container button:hover {
-    background-color: #CDDC39; /* A different shade of yellow for hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
+    background-color: #CDDC39;
+    transform: scale(1.05); 
 }
 
 #binaryDisplay, #randomBinary, #binaryOutput {
     font-size: 32px;
     font-weight: bold;
-    color: #FFEB3B; /* Yellow for binary displays */
+    color: #FFEB3B; 
 }
 
 .error {
@@ -89,11 +89,11 @@
 }
 
 .result {
-    color: #8BC34A; /* Light green for correct results */
+    color: #8BC34A; 
 }
 
 .incorrect {
-    color: #F44336; /* Red for incorrect results */
+    color: #F44336; 
     animation: shake 0.5s;
 }
 

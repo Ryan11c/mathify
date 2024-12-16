@@ -1,26 +1,30 @@
 {% extends 'myApp/base.html' %}
 
-{% block content %}
+{% load static %}
 
+{% block content %}
+<link rel="stylesheet" href="{% static 'myApp/css/blog.css' %}">
 <h1>Posts</h1>
 <div class="row">
     {% for post in object_list %}
-    <div class="col-md-4 mb-4"> <!-- Adjust the column size as needed -->
+    <div class="col-md-4 mb-4"> 
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
                     <a href="{% url 'article_details' pk=post.pk %}">{{ post.title }}</a>
-                    <span class="text-muted"> ({{ post.total_likes }} likes)</span>
+                    <span class="card-color"> ({{ post.total_likes }} likes)</span>
                 </h5>
                 {% if post.category != 'uncategorized' %}
                 <h6>
                     <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
                 </h6>
                 {% endif %}
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 class="card-color">
                     {{ post.author.username }} - {{ post.post_date }}
                 </h6>
-                <p class="card-text">{{ post.body|safe|truncatewords:12 }}</p> <!-- Truncate for preview -->
+                <div class="body-text">
+                    <p>{{ post.body|safe|truncatewords:12 }}</p>
+                </div>
 
                 {% if user.is_authenticated and user.id == post.author.id %}
                         <a href="{% url 'update_post' post.pk %}" class="card-link">Edit</a>

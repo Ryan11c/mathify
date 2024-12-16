@@ -1,0 +1,64 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--yellow);
+}
+
+.card {
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-title a {
+    text-decoration: none;
+    color: var(--yellow);
+    font-weight: bold;
+}
+
+.card-title a:hover {
+    color: var(--text-color);
+}
+
+
+.card-color {
+    color: #e0e0e0; 
+    font-size: 0.9rem;
+}
+
+.card-link {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+.body-text {
+    color: var(--text-color)
+}
+
+h6 a {
+    text-decoration: none;
+    color: var(--yellow);
+}
+
+h6 a:hover {
+    color: var(--text-color);
+}

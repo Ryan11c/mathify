@@ -5,7 +5,6 @@ let columns = 0;
 function initializeMatrix() {
   rows = parseInt(document.getElementById("rows").value);
   columns = parseInt(document.getElementById("columns").value);
-
   const matrixInput = document.getElementById("matrix-input");
   matrixInput.innerHTML = "";
 
@@ -13,11 +12,10 @@ function initializeMatrix() {
 
   for (let i = 0; i < rows; i++) {
     const rowDiv = document.createElement("div");
-    rowDiv.style.display = "flex";
+    rowDiv.classList.add("matrix-input-row"); 
     for (let j = 0; j < columns; j++) {
       const input = document.createElement("input");
       input.type = "number";
-      input.style.width = "50px";
       input.onchange = (e) => (matrix[i][j] = parseInt(e.target.value));
       rowDiv.appendChild(input);
     }
@@ -32,7 +30,6 @@ function printMatrix(matrix, elementId) {
 
 function performRowReduction() {
   printMatrix(matrix, "original-matrix");
-
   for (let i = 0; i < rows; i++) {
     if (matrix[i][i] === 0) {
       for (let j = i + 1; j < rows; j++) {
@@ -42,12 +39,10 @@ function performRowReduction() {
         }
       }
     }
-
     const pivot = matrix[i][i];
     for (let k = 0; k < columns; k++) {
       matrix[i][k] /= pivot;
     }
-
     for (let j = 0; j < rows; j++) {
       if (j !== i) {
         const factor = matrix[j][i];
@@ -57,6 +52,5 @@ function performRowReduction() {
       }
     }
   }
-
   printMatrix(matrix, "reduced-matrix");
 }
