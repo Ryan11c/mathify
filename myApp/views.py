@@ -8,6 +8,21 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
+def Search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        items = Post.objects.filter(title__contains=searched)
+        cat_menu = Category.objects.all()  
+        return render(request, 'myApp/search.html', {
+            'cat_menu': cat_menu, 
+            'searched': searched,
+            'items': items,
+            })
+    else:
+        cat_menu = Category.objects.all()  
+        return render(request, 'myApp/search.html', {'cat_menu': cat_menu})
+
+
 def HomeView(request):
     cat_menu = Category.objects.all()  
     return render(request, 'myApp/home.html', {'cat_menu': cat_menu})
