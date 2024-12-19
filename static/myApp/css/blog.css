@@ -5,6 +5,10 @@
     --text-color: #ffffff;
 }
 
+body {
+    background-color: #565555;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 2rem;
@@ -16,6 +20,7 @@ h1 {
     border: none;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
 .card:hover {

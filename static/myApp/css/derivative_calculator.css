@@ -5,15 +5,13 @@
     --text-color: #ffffff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    background-color: #565555;
 }
 
 .deri-body {
     padding-top: 2rem;
-    background-color: var(--text-color);
+    background-color: #565555;
     color: var(--text-color);
     font-family: Arial, sans-serif;
     line-height: 1.5;
@@ -34,6 +32,7 @@ h1, h2 {
 h1 {
     color: var(--yellow);
     font-size: 2.5rem;
+    font-weight: bold;
 }
 
 h2 {
@@ -45,7 +44,7 @@ h2 {
     background-color: var(--light-gray);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
     margin-bottom: 2rem;
 }
 
@@ -86,13 +85,14 @@ h2 {
 }
 
 .output-deriv {
-    width: 70%;
-    margin: 0 auto; 
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
     text-align: center;
     background-color: var(--light-gray);
-    padding: 2rem;
     border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
 pre {

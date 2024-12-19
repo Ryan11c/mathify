@@ -8,9 +8,8 @@
     --pre-background: #ffffff;
 }
 
-h1, h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
+body {
+    background-color: #565555;
 }
 
 h1 {
@@ -30,7 +29,7 @@ h2 {
     background-color: var(--light-gray);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
@@ -102,7 +101,7 @@ h2 {
     background-color: var(--light-gray);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
 .output-container pre {

@@ -5,10 +5,8 @@
     --text-color: #ffffff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    background-color: #565555;
 }
 
 .container {
@@ -39,6 +37,7 @@ h2 {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
 .calculator-card a {

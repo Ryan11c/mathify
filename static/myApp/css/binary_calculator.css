@@ -1,3 +1,14 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: #565555;
+}
+
 .container {
     padding-top: 1rem;
     display: flex;
@@ -12,7 +23,7 @@
     margin-bottom: 40px;
     padding: 30px;
     border-radius: 12px; 
-    background-color: #424242;
+    background-color: var(--light-gray);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
     transition: all 0.3s ease-in-out;
     max-width: 600px;
@@ -20,7 +31,7 @@
 }
 
 .container h2 {
-    color: #FFEB3B; 
+    color: var(--yellow);
     font-size: 28px;
     margin-bottom: 20px;
 }
@@ -32,11 +43,11 @@
     display: block;
     margin-bottom: 20px;
     font-size: 18px;
-    border: 2px solid #FFEB3B;
+    border: 2px solid var(--yellow);
 }
 
 .container input[type="number"] {
-    background-color: #616161; 
+    background-color: var(--dark-gray);
     color: #f1f1f1;
 }
 
@@ -57,7 +68,7 @@
 #binaryDisplay, #randomBinary, #binaryOutput {
     font-size: 32px;
     font-weight: bold;
-    color: #FFEB3B; 
+    color: var(--yellow);
 }
 
 .error {
