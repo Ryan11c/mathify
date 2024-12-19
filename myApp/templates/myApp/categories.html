@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{% static 'myApp/css/category.css' %}">
     {% if category_post %}
         <h1>{{ cats }}</h1>
+        <div class="row justify-content-center">
         {% for post in category_post %}
         <div class="col-md-4 mb-4"> 
             <div class="card">
@@ -16,7 +17,7 @@
                     <h6 class="card-color">
                         {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}
                     </h6>
-                    <p class="card-color">{{ post.body|safe|truncatewords:30 }}</p> 
+                    <p class="card-color">{{ post.body|safe|truncatewords:7 }}</p> 
 
                     {% if user.is_authenticated and user.id == post.author.id %}
                         <a href="{% url 'update_post' post.pk %}" class="card-link">Edit</a>
@@ -26,6 +27,7 @@
             </div>
         </div>
         {% endfor %}
+        </div>
     {%  else %}
         <p>There are no posts under this category</p>
     {%  endif %}
