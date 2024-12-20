@@ -1,0 +1,63 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: #565555;
+}
+
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--yellow);
+}
+
+.register-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: var(--light-gray);
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.register-container label {
+    font-size: 1.1rem;
+    color: var(--yellow);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.register-container ul { /* IT WAS THIS!!!! THIS FINALLY MADE THE TEXT WHITE WOOHOO */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    display: block;
+}
+
+.register-container p { /* SAME HERE.. I spent too much time on this thing and it was as simple as adding "p" */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    display: block;
+}
+
+.register-container button.btn {
+    display: inline-block;
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.register-container button.btn:hover {
+    background-color: var(--text-color);
+    color: var(--dark-gray);
+}
