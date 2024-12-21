@@ -4,54 +4,67 @@
 {% block title %}{{ post.title_tag }}{% endblock %}
 
 {% block content %}
-
+    <link rel="stylesheet" href="{% static 'myApp/css/article_detail.css' %}">
     <h1>{{ post.title }}</h1>
-    <small> 
-        {% if post.author.profile.profile_pic %}
-            <img src="{{ post.author.profile.profile_pic.url }}" width=5% class="rounded-circle">
-        {% else %}
-            <img src="{% static 'myApp/images/defaultpfp.png' %}" width=5% class="rounded-circle">
+    <div class="post-card">
+        <h6>
+            {% if post.author.profile.profile_pic %}
+                <img src="{{ post.author.profile.profile_pic.url }}" width=40 height=40 class="rounded-circle">
+            {% else %}
+                <img src="{% static 'myApp/images/defaultpfp.png' %}" width=40 height=40 class="rounded-circle">
+            {% endif %}
+                {{ post.author.username }} - {{ post.post_date }} 
+            {% if user.is_authenticated and user.id == post.author.id%}
+                <a href="{% url 'update_post' post.pk %}">(Edit)</a>
+                <a href="{% url 'delete_post' post.pk %}" class="card-link">Delete</a>
+        </h6>
         {% endif %}
-        {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }} 
-        {% if user.is_authenticated and user.id == post.author.id%}
-            - <a href="{% url 'update_post' post.pk %}">(Edit)</a>
-            <a href="{% url 'delete_post' post.pk %}" class="card-link">Delete</a>
+        <hr>
+        <br/>
+        {% if post.header_image %}
+            <img src="{{ post.header_image.url }}" alt="Post Image" class="img-fluid">
         {% endif %}
-    </small>
+        <h6>
+            {{ post.body|safe }}
+        </h6>
+    </div>
+
+    <div class="back-like">
+        <a href="{% url 'blog_view' %}" class="btn btn-warning btn-sm">Back</a>
+        <button class="btn btn-warning btn-sm">{{ post.total_comments }} comment</button>
+        <form action="{% url 'like_post' post.pk %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+                {% if liked %}
+                    <button type="submit", name="post_id", value="{{ post.id }}", 
+                    class="btn btn-warning btn-sm"> {{ total_likes }} like</button> 
+                {% else %}
+                    <button type="submit", name="post_id", value="{{ post.id }}", 
+                    class="btn btn-warning btn-sm"> {{ total_likes }} like</button>
+                {% endif %}
+            {% else %}
+                    <button class="btn btn-warning btn-sm" disabled> {{ total_likes }} like</button>
+            {% endif %}
+        </form>
+    </div>
+
+    <br/>
     <hr>
 
-    <br/>
-    {% if post.header_image %}
-        <img src="{{ post.header_image.url }}" alt="Post Image" class="img-fluid">
-    {% endif %}
-    <br/>
-    {{ post.body|safe }}
-    <br/>
-
-    <a href="{% url 'blog_view' %}" class="btn btn-secondary">Back</a>
-    <form action="{% url 'like_post' post.pk %}" method="POST">
-        {% csrf_token %}
-    {% if user.is_authenticated %}
-        {% if liked %}
-            <button type="submit", name="post_id", value="{{ post.id }}", 
-            class="btn btn-danger btn-sm">Unlike</button> 
-        {% else %}
-            <button type="submit", name="post_id", value="{{ post.id }}", 
-            class="btn btn-primary btn-sm">Like</button> 
-        {% endif %}
-    {% endif %}
-    {{ total_likes }} Likes
-    </form>
-
-    <br/>
-    <hr>
     <h2>Comments</h2>
+    <a href="{% url 'add_comment' post.pk %}">Add Comment</a><br/>
     {% if not post.comments.all %}
         Very empty here... <a href="{% url 'add_comment' post.pk %}">Comment</a>
     {% else %}
-        <a href="{% url 'add_comment' post.pk %}">Add Comment</a><br/>
         {% for comment in post.comments.all %}
-            <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
+            <strong>
+                {% if post.author.profile.profile_pic %}
+                    <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
+                {% else %}
+                    <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
+                {% endif %}
+                {{ comment.name }} - {{ comment.date_added }}
+            </strong>
             <br/>
             {{ comment.body }}
             <br/>

@@ -1,5 +1,6 @@
 #from . import views
 from django.urls import path
+#so long.. haha
 from .views import HomeView, BlogView, ArticleDetailView, AddPost, AddComment, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, LikeView, BinaryCalculator, DerivativeCalculator, RowReducer, Integral, Search
 
 urlpatterns = [

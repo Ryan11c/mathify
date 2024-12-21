@@ -8,8 +8,8 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
-def Search(request):
-    if request.method == "POST":
+def Search(request): #function to use the search bar, returns the category, searched, and items (title of the specific post)
+    if request.method == "POST": 
         searched = request.POST.get('searched')
         items = Post.objects.filter(title__contains=searched)
         cat_menu = Category.objects.all()  
@@ -117,7 +117,9 @@ class AddComment(CreateView):
     form_class = CommentForm
     template_name = 'myApp/add_comment.html'
     def form_valid(self, form):
-        form.instance.post_id = self.kwargs['pk']
+        form.instance.post_id = self.kwargs['pk'] #This is what I needed to make the comment have the name of the user automatically
+        if self.request.user.is_authenticated:
+            form.instance.name = self.request.user.username
         return super().form_valid(form)
     def get_success_url(self):
         return reverse_lazy('article_details', kwargs={'pk': self.kwargs['pk']})

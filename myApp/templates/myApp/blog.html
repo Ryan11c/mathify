@@ -4,14 +4,14 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'myApp/css/blog.css' %}">
-<h1>Posts</h1>
+<h1>Explore</h1>
 <div class="row">
     {% for post in object_list %}
     <div class="col-md-4 mb-4"> 
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
-                    <a href="{% url 'article_details' pk=post.pk %}">{{ post.title }}</a>
+                    <a href="{% url 'article_details' pk=post.pk %}">{{ post.title|safe|truncatewords:5 }}</a>
                     <span class="card-color"> ({{ post.total_likes }} likes)</span>
                 </h5>
                 {% if post.category != 'uncategorized' %}
@@ -20,6 +20,11 @@
                 </h6>
                 {% endif %}
                 <h6 class="card-color">
+                    {% if post.author.profile.profile_pic %}
+                        <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
+                    {% else %}
+                         <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
+                    {% endif %}
                     {{ post.author.username }} - {{ post.post_date }}
                 </h6>
                 <div class="body-text">

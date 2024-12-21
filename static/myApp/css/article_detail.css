@@ -1,0 +1,79 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: #565555;
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--yellow);
+}
+
+.post-card h6 {
+    color: var(--text-color);
+}
+
+h2 {
+    color: var(--yellow);   
+}
+
+a {
+    color: var(--yellow);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-color);
+}
+
+.back-like {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.back-like * {
+    margin-right: 10px; /*This is to make the back, comment, and like button be seperated by a little
+                          Did not know you could do it this way.. but thank YOU STACK OVERFLOW !*/
+}
+
+hr {
+    color: var(--dark-gray)
+}
+
+
+.comment-section {
+    margin-top: 2rem;
+}
+
+.comment-section h2 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+}
+
+.comment-section strong {
+    color: var(--text-color);
+}
+
+.comment-section img {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.comment-section a {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.comment-section p {
+    margin: 0.5rem 0 1rem;
+}
+

@@ -15,6 +15,11 @@
                         <span class="card-color"> ({{ post.total_likes }} likes)</span>
                     </h5>
                     <h6 class="card-color">
+                        {% if post.author.profile.profile_pic %}
+                            <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
+                        {% else %}
+                            <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
+                        {% endif %}
                         {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}
                     </h6>
                     <p class="card-color">{{ post.body|safe|truncatewords:7 }}</p> 
