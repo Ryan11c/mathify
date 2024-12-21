@@ -10,6 +10,7 @@ body {
 }
 
 h1 {
+    font-size: 2.1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: var(--yellow);
@@ -17,20 +18,11 @@ h1 {
 
 .post-card h6 {
     color: var(--text-color);
+    font-size: 1rem;
 }
 
-h2 {
+h2, h3, h6{
     color: var(--yellow);   
-}
-
-a {
-    color: var(--yellow);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--text-color);
 }
 
 .back-like {
@@ -49,31 +41,35 @@ hr {
     color: var(--dark-gray)
 }
 
-
-.comment-section {
-    margin-top: 2rem;
+.comment-post { 
+    /*For the comment posts. I wanted to make it match the blog posts in the explore page.
+      I think it looks good so far!*/
+    width: 65%;
+    background-color: var(--light-gray);
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: lighter;
+    padding: 0.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
 }
 
-.comment-section h2 {
-    color: var(--yellow);
+.add-comment {
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.comment-section strong {
-    color: var(--text-color);
+.add-comment a {
+    /*This looks good too! Im starting to like this comment section*/
+    text-decoration: 0;
+    color: var(--yellow);
+    background-color: var(--light-gray);
+    padding: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
 }
 
-.comment-section img {
-    margin-right: 0.5rem;
-    vertical-align: middle;
+.add-comment a:hover {
+    opacity: 85%;
 }
-
-.comment-section a {
-    display: inline-block;
-    margin-top: 0.5rem;
-}
-
-.comment-section p {
-    margin: 0.5rem 0 1rem;
-}
-

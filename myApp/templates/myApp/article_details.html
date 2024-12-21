@@ -9,9 +9,9 @@
     <div class="post-card">
         <h6>
             {% if post.author.profile.profile_pic %}
-                <img src="{{ post.author.profile.profile_pic.url }}" width=40 height=40 class="rounded-circle">
+                <img src="{{ post.author.profile.profile_pic.url }}" width=50 height=50 class="rounded-circle">
             {% else %}
-                <img src="{% static 'myApp/images/defaultpfp.png' %}" width=40 height=40 class="rounded-circle">
+                <img src="{% static 'myApp/images/defaultpfp.png' %}" width=50 height=50 class="rounded-circle">
             {% endif %}
                 {{ post.author.username }} - {{ post.post_date }} 
             {% if user.is_authenticated and user.id == post.author.id%}
@@ -51,25 +51,32 @@
     <br/>
     <hr>
 
-    <h2>Comments</h2>
-    <a href="{% url 'add_comment' post.pk %}">Add Comment</a><br/>
-    {% if not post.comments.all %}
-        Very empty here... <a href="{% url 'add_comment' post.pk %}">Comment</a>
-    {% else %}
-        {% for comment in post.comments.all %}
-            <strong>
-                {% if post.author.profile.profile_pic %}
-                    <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
-                {% else %}
-                    <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
-                {% endif %}
-                {{ comment.name }} - {{ comment.date_added }}
-            </strong>
-            <br/>
-            {{ comment.body }}
-            <br/>
-        {% endfor %}
-    {% endif %}
-
+    <h3>Comments</h3>
+    <div class="comment-section">
+        <div class="add-comment">
+            <a href="{% url 'add_comment' post.pk %}">Add Comment</a><br/>
+        </div>
+        {% if not post.comments.all %}
+            <h6>
+                Very empty here... No comments..
+            </h6>
+        {% else %}
+            {% for comment in post.comments.all %}
+                <div class="comment-post">
+                    <strong>
+                        {% if post.author.profile.profile_pic %}
+                            <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
+                        {% else %}
+                            <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
+                        {% endif %}
+                        {{ comment.name }} - {{ comment.date_added }}
+                    </strong>
+                    <br/>
+                    {{ comment.body }}
+                    <br/>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}
 
