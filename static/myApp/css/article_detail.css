@@ -21,6 +21,16 @@ h1 {
     font-size: 1rem;
 }
 
+.post-card a {
+    text-decoration: none;
+    color: var(--yellow);
+}
+
+.post-card a:hover {
+    text-decoration: none;
+    color: (var(--text-color));
+}
+
 h2, h3, h6{
     color: var(--yellow);   
 }
@@ -38,7 +48,9 @@ h2, h3, h6{
 }
 
 hr {
-    color: var(--dark-gray)
+    margin-top: 1.5rem; /*Changed this too. Now, the line is more even on the screen*/
+    margin-bottom: 0;
+    color: var(--dark-gray);
 }
 
 .comment-post { 

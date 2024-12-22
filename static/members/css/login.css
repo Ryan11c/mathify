@@ -1,0 +1,55 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: #565555;
+}
+
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 0;
+    color: var(--yellow);
+}
+
+.login-container {
+    max-width: 300px;
+    margin: 2rem auto;
+    margin-top: 0;
+    background-color: var(--light-gray);
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.login-container label {
+    font-size: 1.1rem;
+    color: var(--yellow);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.login-container button.btn {
+    display: inline-block;
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.login-container button.btn:hover {
+    background-color: var(--text-color);
+    color: var(--dark-gray);
+}
