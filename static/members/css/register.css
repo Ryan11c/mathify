@@ -9,6 +9,13 @@ body {
     background-color: #565555;
 }
 
+.background-image { /*same css from login.css. I just copied it over*/
+    position: absolute; /*this makes the whole background blurred.. interesting*/
+    backdrop-filter: blur(6px);
+    background-size: cover;
+    width: 100%;
+}
+
 h1 {
     margin-top: 2rem;
     text-align: center;

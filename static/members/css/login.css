@@ -9,6 +9,13 @@ body {
     background-color: #565555;
 }
 
+.background-image { /*This is to make the background image cover the entire screen.*/
+    backdrop-filter: blur(6.5px);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+}
+
 h1 {
     margin-top: 2rem;
     text-align: center;
