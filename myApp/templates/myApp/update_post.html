@@ -1,19 +1,22 @@
 {% extends 'myApp/base.html' %}
-{% block title %}Edit Post{% endblock %}
-{% block content %}
+{% load static %}
 
-{% if user.is_authenticated and user.id == post.author.id %} 
-   <h1>Edit Post</h1>
-   <br/><br/>
-   <div class="mb-3">
-        <form method="POST">
-        {% csrf_token %}
-        {{ form.media }}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Update</button>
-    </div>
-{% else %}
-    Error, user not logged in
-{% endif %}
- 
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'myApp/css/update_post.css' %}">
+    {% if user.is_authenticated and user.id == post.author.id %} 
+        <h1>Edit Post</h1>
+        <div class="update-container card">
+            <div class="mb-3">
+                <form method="POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Update</button>
+            </div>
+        </div>
+    {% else %}
+        Error, user not logged in
+    {% endif %}
 {% endblock %}

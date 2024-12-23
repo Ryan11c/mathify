@@ -1,0 +1,55 @@
+:root {
+    --dark-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --yellow: #ffd700;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: #565555;
+}
+
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--yellow);
+}
+
+.delete-container strong {
+    color: var(--text-color);
+}
+
+.delete-container {
+    background-color: var(--light-gray);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--yellow);
+    font-weight: bold;
+    text-align: center;
+}
+
+.delete-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.delete-container button.btn {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.delete-container button.btn:hover {
+    background-color: var(--text-color);
+    color: var(--dark-gray);
+}
+

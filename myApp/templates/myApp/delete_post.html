@@ -1,19 +1,22 @@
 {% extends 'myApp/base.html' %}
-{% block title %}Delete Post{% endblock %}
-{% block content %}
+{% load static %}
 
-{% if user.is_authenticated and user.id == post.author.id %}
-   <h1>Delete Post</h1>
-   <br/><br/>
-    <h3>Delete: {{ post.title }}</h3>
-   <div class="mb-3">
-        <form method="POST">
-        {% csrf_token %}
-        <strong>Are you sure?</strong> <br/>
-        <button class="btn btn-secondary">Delete Post</button>
+{% block title %}Delete Post{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'myApp/css/delete_post.css' %}">
+    {% if user.is_authenticated and user.id == post.author.id %}
+    <h1>Delete Post</h1>
+    <div class="delete-container card">
+        <h3>Delete: {{ post.title }}</h3>
+        <div class="mb-3">
+            <form method="POST">
+            {% csrf_token %}
+            <strong>Are you sure?</strong> <br/>
+            <button class="btn btn-secondary">Delete Post</button>
+        </div>
     </div>
-{% else %}
-    Error, user not logged in
-{% endif %}
- 
+    {% else %}
+        Error, user not logged in
+    {% endif %}
 {% endblock %}

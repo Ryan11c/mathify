@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="{% static 'myApp/css/add_post.css' %}">
         <h1>Add Post</h1>
         <div class="add-post-container card">
-            <br/><br/>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.media }}
