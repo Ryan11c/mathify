@@ -60,7 +60,6 @@ h1 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
