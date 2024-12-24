@@ -1,15 +1,16 @@
 {% extends 'myApp/base.html' %}
+{% load static %}
+
 {% block title %}Edit Setting{% endblock %}
 {% block content %}
-
-   <h1>Edit Setting</h1>
-   <br/><br/>
-
-   <div class="mb-3">
-        <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Update Setting</button>
+    <link rel="stylesheet" href="{% static 'members/css/edit_profile.css' %}">
+    <h1>Edit Setting</h1>
+    <div class="edit-container">
+        <div class="mb-3">
+            <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Update Setting</button>
+        </div>
     </div>
- 
 {% endblock %}
