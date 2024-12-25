@@ -9,6 +9,15 @@ body {
     background-color: #565555;
 }
 
+.background-image {
+    position: absolute; 
+    backdrop-filter: blur(6px);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    background-position: -25px;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;

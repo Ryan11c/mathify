@@ -6,6 +6,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 
 def Search(request): #function to use the search bar, returns the category, searched, and items (title of the specific post)
@@ -85,16 +86,35 @@ class ArticleDetailView(DetailView):
     model = Post
     template_name = 'myApp/article_details.html'
     def get_context_data(self, *args, **kwargs):
+        comments_with_pics = []
         cat_menu = Category.objects.all()
         context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
-        stuff = get_object_or_404(Post, id=self.kwargs['pk'])
-        total_likes = stuff.total_likes()
+        post = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = post.total_likes()
         liked = False
-        if stuff.likes.filter(id=self.request.user.id).exists():
+
+        if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+
+        #Solved the issue with the profile picture not showing up in the comment section.
+        #What I did was loop through all the comments and assign the profile pic url to that user
+        #If there was no url, it would assign none. In the articl_detail.html, it would iterate over the comments_with_pics list.
+        #If the comment has pfp, render it, if not, put the default pfp. EZ ! o.o
+        for comment in post.comments.all():
+            try:
+                user = User.objects.get(username=comment.name)
+                profile_pic = user.profile.profile_pic.url if user.profile.profile_pic else None
+            except User.DoesNotExist:
+                profile_pic = None
+            comments_with_pics.append({
+                'comment': comment,
+                'profile_pic': profile_pic
+            })
+        #Return everything
         context["cat_menu"] = cat_menu
         context["total_likes"] = total_likes
         context["liked"] = liked
+        context["comments_with_pics"] = comments_with_pics
         return context
 
 

@@ -60,18 +60,18 @@
                 Very empty here... No comments..
             </h6>
         {% else %}
-            {% for comment in post.comments.all %}
+            {% for comment_data in comments_with_pics %}
                 <div class="comment-post">
                     <strong>
-                        {% if post.author.profile.profile_pic %}
-                            <img src="{{ post.author.profile.profile_pic.url }}" width=30 height=30 class="rounded-circle">
+                        {% if comment_data.profile_pic %}
+                            <img src="{{ comment_data.profile_pic }}" width=30 height=30 class="rounded-circle">
                         {% else %}
                             <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
                         {% endif %}
-                        {{ comment.name }} - {{ comment.date_added }}
+                        {{ comment_data.comment.name }} - {{ comment_data.comment.date_added }}
                     </strong>
                     <br/>
-                    {{ comment.body }}
+                    {{ comment_data.comment.body }}
                     <br/>
                 </div>
             {% endfor %}
