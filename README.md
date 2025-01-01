@@ -7,7 +7,6 @@ Mathify is a full-stack application developed using Python Django to help users 
 * Built-in calculators for problems in calculus, linear algebra, and more.
 * Responsive and user-friendly interface.
 
-
 ## Table of Contents
 1. [Setup](#setup)
 2. [How to Run the Project](#how-to-run-the-project)
@@ -16,30 +15,63 @@ Mathify is a full-stack application developed using Python Django to help users 
 5. [Contributing](#contributing)
 6. [Contact](#contact)
 
-## Setup: 
-* The first thing to do is create a folder.
-* Then clone the repository into that folder:
-* $ git clone https://github.com/Ryan11c/mathify.git 
+## Setup
+### Clone the Repository
+1. Create a folder for the project.
+2. Clone the repository into the folder:
+   ```bash
+   git clone https://github.com/Ryan11c/mathify.git
+   ```
 
-## Create a virtual environment to install dependencies in and activate it:
-* On Windows: 🪟
-* $ python -m venv venv
-* $ . venv/Scripts/activate
-* Notice the virtual environment is in the root directory of the folder, not inside mathify.
+### Create a Virtual Environment
+1. Navigate to the folder.
+2. Create and activate a virtual environment:
+   **On Windows:**
+   ```bash
+   python -m venv venv
+   . venv/Scripts/activate
+   ```
+   **On macOS/Linux:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Notice the virtual environment is in the root directory of the folder, not inside mathify.
 
-## Then install the dependencies:
-* (venv)$ cd mathify 
-* (venv)$ pip install -r requirements.txt 
-* Note the (venv) in front of the prompt. This indicates that this terminal session operates in a virtual environment.
+### Install Dependencies
+1. Navigate into the `mathify` folder:
+   ```bash
+   cd mathify
+   ```
+2. Install required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Create your own secret key:
-* Create a .env file in myProject directory
-* Inside, put SECRET_KEY=*******
-* replace ******* with your secret key
+### Configure the Project
+1. Create a `.env` file in the `myProject` directory inside `mathify`.
+2. Add the following line, replacing `*******` with your own data:
+   ```
+    SECRET_KEY=*******
+    DB_NAME_PG=*******
+    DB_USER_PG=*******
+    DB_HOST_PG=*******
+    DB_PORT_PG=*******
+    DB_PASSWORD_PG=*******
+   ```
+---
 
-## Once pip has finished downloading the dependencies: 
-* (venv)$ python manage.py makemigrations
-* (venv)$ python manage.py migrate
-* (venv)$ python manage.py runserver
+## How to Run the Project
+1. Apply migrations:
+   ```bash
+   python manage.py migrate
+   ```
+2. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+3. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to explore the application.
+---
+
 
 ## This project was very fun to make! I hope you guys enjoy it too 👍
