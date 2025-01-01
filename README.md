@@ -1,5 +1,5 @@
 # Mathify 😀
-Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics, including calculus and linear algebra. Users can log in, participate in discussions, and leverage powerful tools to enhance their understanding of mathematics.
+Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics, including calculus and linear algebra. Users can log in, participate in discussions, and leverage powerful tools to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
 
 ## Features:
 * User authentication (sign up, log in, and log out).
@@ -12,8 +12,6 @@ Mathify is a full-stack application developed using Python Django to help users 
 2. [How to Run the Project](#how-to-run-the-project)
 3. [Usage](#usage)
 4. [Future Enhancements](#future-enhancements)
-5. [Contributing](#contributing)
-6. [Contact](#contact)
 
 ## Setup
 ### Clone the Repository
@@ -25,7 +23,8 @@ Mathify is a full-stack application developed using Python Django to help users 
 
 ### Create a Virtual Environment
 1. Navigate to the folder.
-2. Create and activate a virtual environment:
+2. Create and activate a virtual environment: Make sure to use python version 3.12.3 when creating this virtual environment. This ensures all packages will work.
+
    **On Windows:**
    ```bash
    python -m venv venv
@@ -49,8 +48,9 @@ Mathify is a full-stack application developed using Python Django to help users 
    ```
 
 ### Configure the Project
-1. Create a `.env` file in the `myProject` directory inside `mathify`.
-2. Add the following line, replacing `*******` with your own data:
+1. Set up postgres database with your chosen host.
+2. Create a `.env` file in the `myProject` directory inside `mathify`.
+3. Add the following line, replacing `*******` with your own data:
    ```
     SECRET_KEY=*******
     DB_NAME_PG=*******
@@ -59,19 +59,31 @@ Mathify is a full-stack application developed using Python Django to help users 
     DB_PORT_PG=*******
     DB_PASSWORD_PG=*******
    ```
----
 
 ## How to Run the Project
 1. Apply migrations:
    ```bash
    python manage.py migrate
    ```
-2. Start the development server:
+2. Create new superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+   * Follow directions and create the user!
+3. Start the development server:
    ```bash
    python manage.py runserver
    ```
-3. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to explore the application.
----
+4. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to explore the application.
+5. Tip: The superuser will be the admin, meaning you can log into the admin section of Django.
 
+## Usage
+1. Log in or sign up to start using Mathify.
+2. Access the discussion forums to collaborate on math problems.
+3. Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
 
-## This project was very fun to make! I hope you guys enjoy it too 👍
+## Future Enhancements
+1. Better authentication such as google or email/phone validator
+2. APIs!!
+
+## This project was very fun to make! I hope you guys enjoy it too 👍😎
