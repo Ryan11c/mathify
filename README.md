@@ -13,7 +13,7 @@ Mathify is a full-stack application developed using Python Django to help users 
 3. [Usage](#usage)
 4. [Future Enhancements](#future-enhancements)
 
-## Setup
+## 1. Setup
 ### Clone the Repository
 1. Create a folder for the project.
 2. Clone the repository into the folder:
@@ -60,7 +60,7 @@ Mathify is a full-stack application developed using Python Django to help users 
     DB_PASSWORD_PG=*******
    ```
 
-## How to Run the Project
+## 2. How to Run the Project
 1. Apply migrations:
    ```bash
    python manage.py migrate
@@ -77,12 +77,12 @@ Mathify is a full-stack application developed using Python Django to help users 
 4. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to explore the application.
 5. Tip: The superuser will be the admin, meaning you can log into the admin section of Django.
 
-## Usage
+## 3. Usage
 1. Log in or sign up to start using Mathify.
 2. Access the discussion forums to collaborate on math problems.
 3. Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
 
-## Future Enhancements
+## 4. Future Enhancements
 1. Better authentication such as google or email/phone validator
 2. APIs!!
 
