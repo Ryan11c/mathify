@@ -1,19 +1,20 @@
 {% extends 'myApp/base.html' %}
+{% load static %}
+
 {% block title %}Create New Profile{% endblock %}
 {% block content %}
-
-{% if user.is_authenticated %}
-   <h1>Create Profile Page</h1>
-   <br/><br/>
-
-   <div class="mb-3">
-        <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Create</button>
-    </div>
-{% else %}
-    Error, user not logged in
-{% endif %}
- 
+    <link rel="stylesheet" href="{% static 'members/css/create_user_profile.css' %}">
+    {% if user.is_authenticated %}
+    <h1>Create Profile Page</h1>
+    <div class="edit-container">
+        <div class="mb-3">
+                <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Create</button>
+            </div>
+        </div>
+    {% else %}
+        Error, user not logged in
+    {% endif %}
 {% endblock %}
