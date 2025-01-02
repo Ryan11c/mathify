@@ -8,10 +8,10 @@ Mathify is a full-stack application developed using Python Django to help users 
 * Responsive and user-friendly interface.
 
 ## Table of Contents
-1. [Setup](#setup)
-2. [How to Run the Project](#how-to-run-the-project)
-3. [Usage](#usage)
-4. [Future Enhancements](#future-enhancements)
+1. [Setup](#.-setup)
+2. [How to Run the Project](#2-how-to-run-the-project)
+3. [Usage](#3-usage)
+4. [Future Improvements](#4-future-improvements)
 
 ## 1. Setup
 ### Clone the Repository
@@ -82,7 +82,7 @@ Mathify is a full-stack application developed using Python Django to help users 
 2. Access the discussion forums to collaborate on math problems.
 3. Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
 
-## 4. Future Enhancements
+## 4. Future Improvements
 1. Better authentication such as google or email/phone validator
 2. APIs!!
 
