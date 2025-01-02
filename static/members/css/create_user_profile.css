@@ -17,7 +17,7 @@ h1 {
 }
 
 .edit-container {
-    max-width: 50%;
+    max-width: 600px;
     margin: 2rem auto;
     background-color: var(--light-gray);
     padding: 2rem;

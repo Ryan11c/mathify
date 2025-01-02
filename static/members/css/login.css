@@ -57,3 +57,7 @@ h1 {
     background-color: var(--text-color);
     color: var(--dark-gray);
 }
+
+li {
+    color: var(--text-color);
+}

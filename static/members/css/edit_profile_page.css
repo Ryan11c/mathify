@@ -17,14 +17,13 @@ h1 {
 }
 
 .edit-container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 2rem auto;
     background-color: var(--light-gray);
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
 }
 
 .edit-container:hover {
@@ -51,6 +50,10 @@ h1 {
     background-color:var(--dark-gray);
     padding: 0.7rem;
     border-radius: 10px;
+}
+
+#id_bio {
+    width: 100%;
 }
 
 .edit-container button.btn {
