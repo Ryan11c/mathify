@@ -16,6 +16,12 @@ class PostForm(forms.ModelForm):
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
         }
+    #function to fix category not loading in add_post form. 
+    #Thie function makes it so that the choices are dynamically loaded every time 
+    #the form is created.
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['category'].choices = Category.objects.all().values_list('name', 'name')
 
 class EditForm(forms.ModelForm):
     class Meta:
