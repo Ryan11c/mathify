@@ -1,4 +1,4 @@
-# Mathify 😀 
+# Mathify - Full Stack Django Web Application
 #### Live version of this project: [Live Server](https://djangowebsite-production.up.railway.app/)
 Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics, including calculus and linear algebra. Users can log in, participate in discussions, and use various math calculators to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
 
@@ -9,20 +9,21 @@ Mathify is a full-stack application developed using Python Django to help users 
 * Responsive and user-friendly interface.
 
 ## Table of Contents
-1. [Setup](#1-setup)
-2. [How to Run the Project](#2-how-to-run-the-project)
+1. [Setup](#setup)
+2. [How to Run the Project](#how-to-run-the-project)
 3. [Usage](#3-usage)
-4. [Future Improvements](#4-future-improvements)
+4. [Future Improvements](#future-improvements)
 
-## 1. Setup
-### Clone the Repository
+## Setup
+#### Clone the Repository
 1. Create a folder for the project.
 2. Clone the repository into the folder:
+
    ```bash
    git clone https://github.com/Ryan11c/mathify.git
    ```
 
-### Create a Virtual Environment
+#### Create a Virtual Environment
 1. Navigate to the folder.
 2. Create and activate a virtual environment: Make sure to use python version 3.12.3 when creating this virtual environment. This ensures all packages will work.
 
@@ -38,20 +39,23 @@ Mathify is a full-stack application developed using Python Django to help users 
    ```
 3. Notice the virtual environment is in the root directory of the folder, not inside mathify.
 
-### Install Dependencies
+#### Install Dependencies
 1. Navigate into the `mathify` folder:
+
    ```bash
    cd mathify
    ```
 2. Install required packages:
+
    ```bash
    pip install -r requirements.txt
    ```
 
-### Configure the Project
+#### Configure the Project
 1. Set up postgres database with your chosen host.
 2. Create a `.env` file in the `myProject` directory inside `mathify`.
 3. Add the following line, replacing `*******` with your own data:
+
    ```
     SECRET_KEY=*******
     DB_NAME_PG=*******
@@ -61,31 +65,39 @@ Mathify is a full-stack application developed using Python Django to help users 
     DB_PASSWORD_PG=*******
    ```
 
-## 2. How to Run the Project
+## How to Run the Project
 1. Apply migrations:
+
    ```bash
    python manage.py migrate
    ```
 2. Create new superuser:
+
    ```bash
    python manage.py createsuperuser
+   Username: admin
+   Email address: admin@example.com
+   Password: **********
+   Password (again): *********
+   Superuser created successfully.
    ```
-   * Follow directions and create the user!
 3. Start the development server:
+
    ```bash
    python manage.py runserver
    ```
 4. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to explore the application.
 5. Tip: The superuser will be the admin, meaning you can log into the admin section of Django.
 
-## 3. Usage
-1. Log in or sign up to start using Mathify.
-2. Access the discussion forums to collaborate on math problems. Includes posting and comment feature which allows interaction.
-3. Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
+## Usage
+* Log in or sign up to start using Mathify.
+* Access the discussion forums to collaborate on math problems. Includes posting and comment feature which allows interaction.
+* Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
 
-## 4. Future Improvements
-1. Better authentication such as google or email/phone validator
-2. APIs!!
-3. More calculators
+## Future Improvements
+* Better authentication such as google or email/phone validator. The issue right now is that any email can be used. In future versions, I hope to implement a email or phone validator so the email used is legitimate. 
+* Data Visualization: Use APIs like Chart.js or D3.js to create interactive graphs for mathematical functions or datasets.
+* More calculators such as matrix multiplication, inverse, determinant, and more. Can also include other math subjects such as discrete math, algebra, and geometry.
+* Better comment section. In this current version, the comment section is pretty simple only being able to reply to a dicussion post. Some improvements can be comment likes/replies and filtration system.
 
 ## This project was very fun to make! I hope you guys enjoy it too 👍😎
