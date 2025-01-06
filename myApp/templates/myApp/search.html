@@ -2,15 +2,16 @@
 {% load static %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static 'myApp/css/search.css' %}">
     {% if searched %}
         <h1>You searched for {{ searched }}</h1>
         <br/>
-        {% for item in items %}
-           <a href="{% url 'article_details' item.id %}" >{{ item }}</a><br/>
-        {% endfor %}
+        <div class="results-container">
+            {% for item in items %}
+            <a href="{% url 'article_details' item.id %}" >{{ item }}</a><br/>
+            {% endfor %}
+        </div>
     {% else %}
         <h1>Forgot to search!... 🥲</h1>
     {% endif %}
-        
-
 {% endblock %}
