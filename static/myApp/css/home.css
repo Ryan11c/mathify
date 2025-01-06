@@ -10,12 +10,10 @@ body {
 }
 
 .background-image {
-    position: absolute; 
     backdrop-filter: blur(6px);
     background-size: cover;
     width: 100%;
     min-height: 100vh;
-    background-position: -25px;
 }
 
 .container {

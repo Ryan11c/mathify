@@ -1,12 +1,14 @@
 from django.forms import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 
 
 def Search(request): #function to use the search bar, returns the category, searched, and items (title of the specific post)
@@ -137,6 +139,13 @@ class AddComment(CreateView):
     form_class = CommentForm
     template_name = 'myApp/add_comment.html'
     def form_valid(self, form):
+        #Checking if the user has a profile!!!!
+        try:
+            self.request.user.profile
+        except ObjectDoesNotExist:
+            #Redirect to profile creation page if no profile for the user
+            messages.warning(self.request, "You need to create a profile first before commenting.")
+            return redirect('create_profile')  
         form.instance.post_id = self.kwargs['pk'] #This is what I needed to make the comment have the name of the user automatically
         if self.request.user.is_authenticated:
             form.instance.name = self.request.user.username
