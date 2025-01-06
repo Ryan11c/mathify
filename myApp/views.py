@@ -9,20 +9,28 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
+from django.db.models import Q
 
-
-def Search(request): #function to use the search bar, returns the category, searched, and items (title of the specific post)
-    if request.method == "POST": 
+#Handles searching for posts across multiple fields using Q from django.db.models
+def Search(request):
+    if request.method == "POST":
         searched = request.POST.get('searched')
-        items = Post.objects.filter(title__contains=searched)
-        cat_menu = Category.objects.all()  
+        items = Post.objects.filter(
+            Q(title__icontains=searched) | 
+            Q(body__icontains=searched) | 
+            Q(category__icontains=searched) |
+            Q(author__username__icontains=searched)
+        )
+        cat_menu = Category.objects.all()
+        #Render the search results page
         return render(request, 'myApp/search.html', {
-            'cat_menu': cat_menu, 
+            'cat_menu': cat_menu,
             'searched': searched,
             'items': items,
-            })
+        })
     else:
-        cat_menu = Category.objects.all()  
+        #Render the search page with no results if not POST
+        cat_menu = Category.objects.all()
         return render(request, 'myApp/search.html', {'cat_menu': cat_menu})
 
 
