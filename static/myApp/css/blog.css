@@ -22,6 +22,17 @@ h1 {
     box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
+/*Make the entire div redirect to article detail page. Thank you stackoverflow!
+  Only issue now is that we cannot click the category or title anymore*/
+.span-link {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 9999;
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
