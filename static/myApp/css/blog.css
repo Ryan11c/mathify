@@ -30,7 +30,7 @@ h1 {
     height:100%;
     top:0;
     left: 0;
-    z-index: 9999;
+    z-index: 1;
 }
 
 .card:hover {
@@ -39,9 +39,11 @@ h1 {
 }
 
 .card-title a {
+    position: relative;
     text-decoration: none;
     color: var(--yellow);
     font-weight: bold;
+    z-index: 2;
 }
 
 .card-title a:hover {
@@ -70,8 +72,10 @@ h1 {
 }
 
 h6 a {
+    position: relative;
     text-decoration: none;
     color: var(--yellow);
+    z-index: 2;
 }
 
 h6 a:hover {
