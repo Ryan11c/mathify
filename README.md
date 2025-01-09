@@ -91,13 +91,28 @@ Mathify is a full-stack application developed using Python Django to help users 
 
 ## Usage
 * Log in or sign up to start using Mathify.
+<img src="https://github.com/user-attachments/assets/12ff7833-864b-4548-be34-2523a72ac532" height="350">
+<img src="https://github.com/user-attachments/assets/8a3125dc-c522-4dba-9b0b-c8a35f52ac59" height="350">
+
+---
+
 * Access the discussion forums to collaborate on math problems. Includes posting and comment feature which allows interaction.
+<img src="https://github.com/user-attachments/assets/26b93543-061e-4c4a-a499-c56a2cfaf897">
+
+---
+
+* Comment feature:
+<img src="https://github.com/user-attachments/assets/42a91a34-9b96-4431-88cb-e73295a70f1a">
+
+---
+
 * Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
+<img src="https://github.com/user-attachments/assets/0e7b88db-bea7-4555-9cfc-5a007262f3a8">
 
 ## Future Improvements
 * Better authentication such as google or email/phone validator. The issue right now is that any email can be used. In future versions, I hope to implement a email or phone validator so the email used is legitimate. 
-* Data Visualization: Use APIs like Chart.js or D3.js to create interactive graphs for mathematical functions or datasets.
+* Using APIs like Chart.js or D3.js to create interactive graphs for mathematical functions or datasets.
 * More calculators such as matrix multiplication, inverse, determinant, and more. Can also include other math subjects such as discrete math, algebra, and geometry.
 * Better comment section. In this current version, the comment section is pretty simple only being able to reply to a dicussion post. Some improvements can be comment likes/replies and filtration system.
 
-## This project was very fun to make! I hope you guys enjoy it too 👍😎
+## This project was very fun to make! I hope you guys enjoy it too 
