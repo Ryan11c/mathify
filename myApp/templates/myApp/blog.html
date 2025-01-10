@@ -9,6 +9,7 @@
     {% for post in object_list %}
     <div class="col-md-4 mb-4"> 
         <div class="card">
+            <a href="{% url 'article_details' pk=post.pk %}"><span class="span-link"></span></a>
             <div class="card-body">
                 <h5 class="card-title">
                     <a href="{% url 'article_details' pk=post.pk %}">{{ post.title|safe|truncatewords:5 }}</a>

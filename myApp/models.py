@@ -52,6 +52,10 @@ class Comment(models.Model):
     name = models.CharField(max_length=255)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='comment_likes')
+
+    def comment_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return '%s - %s' % (self.post.title, self.name)
