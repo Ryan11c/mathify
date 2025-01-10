@@ -116,9 +116,11 @@ class ArticleDetailView(DetailView):
                 profile_pic = user.profile.profile_pic.url if user.profile.profile_pic else None
             except User.DoesNotExist:
                 profile_pic = None
+            comment_liked = comment.likes.filter(id=self.request.user.id).exists()
             comments_with_pics.append({
                 'comment': comment,
-                'profile_pic': profile_pic
+                'profile_pic': profile_pic,
+                'liked': comment_liked
             })
         #Return everything
         context["cat_menu"] = cat_menu
@@ -141,6 +143,18 @@ class AddPost(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
+
+def LikeCommentView(request, pk):
+    comment = get_object_or_404(Comment, id=pk)
+    liked = False
+    if comment.likes.filter(id=request.user.id).exists():
+        comment.likes.remove(request.user)
+        liked = False
+    else:
+        comment.likes.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('article_details', args=[comment.post.id]))
+
 
 class AddComment(CreateView):
     model = Comment
