@@ -11,7 +11,7 @@ Mathify is a full-stack application developed using Python Django to help users 
 ## Table of Contents
 1. [Setup](#setup)
 2. [How to Run the Project](#how-to-run-the-project)
-3. [Usage](#3-usage)
+3. [Usage](#usage)
 4. [Future Improvements](#future-improvements)
 
 ## Setup
@@ -91,8 +91,7 @@ Mathify is a full-stack application developed using Python Django to help users 
 
 ## Usage
 * Log in or sign up to start using Mathify.
-<img src="https://github.com/user-attachments/assets/12ff7833-864b-4548-be34-2523a72ac532" height="350">
-<img src="https://github.com/user-attachments/assets/8a3125dc-c522-4dba-9b0b-c8a35f52ac59" height="350">
+<img src="https://github.com/user-attachments/assets/be3ac184-cf10-4914-9821-e266455b5b47" width=1050>
 
 ---
 
