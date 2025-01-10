@@ -114,13 +114,15 @@ class ArticleDetailView(DetailView):
             try:
                 user = User.objects.get(username=comment.name)
                 profile_pic = user.profile.profile_pic.url if user.profile.profile_pic else None
+                user_liked = comment.likes.filter(id=self.request.user.id).exists()
             except User.DoesNotExist:
                 profile_pic = None
-            comment_liked = comment.likes.filter(id=self.request.user.id).exists()
+                user_liked = False
             comments_with_pics.append({
                 'comment': comment,
                 'profile_pic': profile_pic,
-                'liked': comment_liked
+                'likes_count': comment.comment_likes(),
+                'user_liked': user_liked,
             })
         #Return everything
         context["cat_menu"] = cat_menu
@@ -150,9 +152,11 @@ def LikeCommentView(request, pk):
     if comment.likes.filter(id=request.user.id).exists():
         comment.likes.remove(request.user)
         liked = False
+        messages.info(request, "You unliked a comment.")
     else:
         comment.likes.add(request.user)
         liked = True
+        messages.success(request, "You liked a comment.")
     return HttpResponseRedirect(reverse('article_details', args=[comment.post.id]))
 
 
