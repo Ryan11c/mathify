@@ -1,12 +1,22 @@
 # Mathify - Full Stack Django Web Application
 #### Live version of this project: [Live Server](https://djangowebsite-production.up.railway.app/)
-Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics, including calculus and linear algebra. Users can log in, participate in discussions, and use various math calculators to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
+Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics. Users can log in, participate in discussions, and use various math calculators to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
 
 ## Features:
 * User authentication (sign up, log in, and log out).
 * Discussion forums for math topics.
 * Built-in calculators for problems in calculus, linear algebra, and more.
 * Responsive and user-friendly interface.
+
+## Development vs. Production
+
+| Feature          | Local Development         | Production                    |
+| ---------------- | ------------------------- | ----------------------------- |
+| **Static Files** | Served locally (static/)  | Stored on S3                  |
+| **Media Files**  | Served locally (media/)   | Stored on S3                  |
+| **Database**     | Local SQLite/PostgreSQL database  | Managed PostgreSQL on Railway |
+
+This repository is designed for **local development** purposes, where the application utilizes static files for serving assets like CSS, JavaScript, and images. The production version of this application is on a private repository and hosted on **Railway**. I also integrated **Amazon S3 storage** for handling static and media files. 
 
 ## Table of Contents
 1. [Setup](#setup)
@@ -90,12 +100,12 @@ Mathify is a full-stack application developed using Python Django to help users 
 5. Tip: The superuser will be the admin, meaning you can log into the admin section of Django.
 
 ## Usage
-* Log in or sign up to start using Mathify.
+* Log in or sign up to start using Mathify:
 <img src="https://github.com/user-attachments/assets/be3ac184-cf10-4914-9821-e266455b5b47" width=1050>
 
 ---
 
-* Access the discussion forums to collaborate on math problems. Includes posting and comment feature which allows interaction.
+* Access the discussion forums to collaborate on math problems:
 <img src="https://github.com/user-attachments/assets/26b93543-061e-4c4a-a499-c56a2cfaf897">
 
 ---
@@ -105,7 +115,7 @@ Mathify is a full-stack application developed using Python Django to help users 
 
 ---
 
-* Use the built-in calculators for solving problems related to calculus, linear algebra, and more.
+* Use the built-in calculators for topics such as Linear Algebra, Calculus, and more:
 <img src="https://github.com/user-attachments/assets/0e7b88db-bea7-4555-9cfc-5a007262f3a8">
 
 ## Future Improvements

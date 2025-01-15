@@ -19,9 +19,8 @@ ALLOWED_HOSTS = []
 
 
 #Application definition
-#For Amazon s3 storage, we need storage for installed apps. We also have to comment out all the
-#whitenoise for s3 to work. But since this is local server, I am just using whitenoise and not s3 buckets.
-#We also have to pip install django-storages==1.14.4 and boto3==1.35.97 for s3 buckets to work.
+#For Amazon S3 storage, we need 'storages' for installed apps. Since this is local server, I am just using djangos static files 
+#and not S3 storage. For S3 storage, we also have to pip install django-storages==1.14.4 and boto3==1.35.97 for s3 buckets to work.
 
 INSTALLED_APPS = [
     'django.contrib.admin',
