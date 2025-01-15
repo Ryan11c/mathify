@@ -18,7 +18,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+#Application definition
+#For Amazon s3 storage, we need storage for installed apps. We also have to comment out all the
+#whitenoise for s3 to work. But since this is local server, I am just using whitenoise and not s3 buckets.
+#We also have to pip install django-storages==1.14.4 and boto3==1.35.97 for s3 buckets to work.
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -30,6 +33,7 @@ INSTALLED_APPS = [
     'myApp',
     'members',
     'ckeditor',
+    #'storages',
 ]
 
 MIDDLEWARE = [
@@ -109,6 +113,30 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+#This is for hosting my static files on aws s3 buckets. The production server is running on a seperate
+#private repo and this is just for local development. Here is what the implementation looks like for the 
+#production server:
+# AWS_ACCESS_KEY_ID = '************************'
+# AWS_SECRET_ACCESS_KEY = '************************'
+
+# AWS_STORAGE_BUCKET_NAME = '************' # - Enter your S3 bucket name HERE
+
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+# AWS_S3_FILE_OVERWRITE = False
+
+# AWS_S3_REGION_NAME = 'us-west-1'
+
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+#     },
+# }
+
 
 
 # Static files (CSS, JavaScript, Images)

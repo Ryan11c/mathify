@@ -73,6 +73,16 @@
                     <br/>
                     {{ comment_data.comment.body }}
                     <br/>
+                    <form action="{% url 'like_comment' comment_data.comment.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                {{ comment_data.likes_count }} Like{% if comment_data.likes_count == 1 %}{% else %}s{% endif %}
+                            </button>
+                        {% else %}
+                            <button class="btn btn-warning btn-sm" disabled> {{ comment_data.likes_count }} like</button>
+                        {% endif %}
+                    </form>
                 </div>
             {% endfor %}
         {% endif %}
