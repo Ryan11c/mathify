@@ -61,24 +61,42 @@ This repository is designed for **local development** purposes, where the applic
    pip install -r requirements.txt
    ```
 
-#### Configure the Project
-1. Set up postgres database with your chosen host.
-2. Create a `.env` file in the `myProject` directory inside `mathify`.
-3. Add the following line, replacing `*******` with your own data:
+#### Configure the Project for SQLite
+1. In the `settings.py` file in `mathify/myProject/settings.py`, ensure the DATABASES section is configured for SQLite3 as the default database.
+2. Also make sure to create your secret key and put it in the `.env` file in`mathify/myProject/.env`:
+   ```
+   SECRET_KEY=*******
+   ```
+3. If you intend to switch to a PostgreSQL database, you can uncomment the PostgreSQL configuration and replace the placeholder values with your actual credentials. The PostgreSQL configuration is already commented out in the default Django settings file for convenience:
+   ```bash
+   DATABASES = {
+      'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         # 'ENGINE': 'django.db.backends.postgresql',
+         # 'NAME': os.environ.get('DB_NAME_PG'),
+         # 'USER': os.environ.get('DB_USER_PG'),
+         # 'PASSWORD': os.environ.get('DB_PASSWORD_PG'),
+         # 'HOST': os.environ.get('DB_HOST_PG'),
+         # 'PORT': os.environ.get('DB_PORT_PG'),
+      }
+   }
+   ```
+4. For PostgreSQL database, you put the following variables in the `.env` file, replacing `*******` with your own data:
 
    ```
-    SECRET_KEY=*******
-    DB_NAME_PG=*******
-    DB_USER_PG=*******
-    DB_HOST_PG=*******
-    DB_PORT_PG=*******
-    DB_PASSWORD_PG=*******
+   DB_NAME_PG=*******
+   DB_USER_PG=*******
+   DB_HOST_PG=*******
+   DB_PORT_PG=*******
+   DB_PASSWORD_PG=*******
    ```
 
 ## How to Run the Project
 1. Apply migrations:
 
    ```bash
+   python manage.py makemigrations
    python manage.py migrate
    ```
 2. Create new superuser:
