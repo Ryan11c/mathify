@@ -33,8 +33,10 @@
                 </div>
 
                 {% if user.is_authenticated and user.id == post.author.id %}
+                    <div class="edit-delete">
                         <a href="{% url 'update_post' post.pk %}" class="card-link">Edit</a>
                         <a href="{% url 'delete_post' post.pk %}" class="card-link">Delete</a>
+                    </div>
                 {%  endif %}
             </div>
         </div>

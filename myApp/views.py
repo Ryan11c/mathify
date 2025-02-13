@@ -11,6 +11,15 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.db.models import Q
 
+#Mixin to add category data to all views
+#I will inherit it in my class-based views
+class CategoryMixin:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cat_menu"] = Category.objects.all()
+        return context
+
+
 #Handles searching for posts across multiple fields using Q from django.db.models
 def Search(request):
     if request.method == "POST":
@@ -35,28 +44,23 @@ def Search(request):
 
 
 def HomeView(request):
-    cat_menu = Category.objects.all()  
-    return render(request, 'myApp/home.html', {'cat_menu': cat_menu})
+    return render(request, 'myApp/home.html', {'cat_menu': Category.objects.all()})
 
 
 def BinaryCalculator(request):
-    cat_menu = Category.objects.all()
-    return render(request, 'myApp/binary_calculator.html', {'cat_menu': cat_menu})
+    return render(request, 'myApp/binary_calculator.html', {'cat_menu': Category.objects.all()})
 
 
 def DerivativeCalculator(request):
-    cat_menu = Category.objects.all()
-    return render(request, 'myApp/derivative_calculator.html', {'cat_menu': cat_menu})
+    return render(request, 'myApp/derivative_calculator.html', {'cat_menu': Category.objects.all()})
 
 
 def Integral(request):
-    cat_menu = Category.objects.all()
-    return render(request, 'myApp/integral.html', {'cat_menu': cat_menu})
+    return render(request, 'myApp/integral.html', {'cat_menu': Category.objects.all()})
 
 
 def RowReducer(request):
-    cat_menu = Category.objects.all()
-    return render(request, 'myApp/row_reducer.html', {'cat_menu': cat_menu})
+    return render(request, 'myApp/row_reducer.html', {'cat_menu': Category.objects.all()})
 
 
 def LikeView(request, pk):
@@ -71,15 +75,10 @@ def LikeView(request, pk):
     return HttpResponseRedirect(reverse('article_details', args=[str(pk)]))
 
 
-class BlogView(ListView):
+class BlogView(CategoryMixin, ListView):
     model = Post
     template_name = 'myApp/blog.html'
     ordering = ['-post_date']
-    def get_context_data(self, *args, **kwargs):
-        cat_menu = Category.objects.all()
-        context = super(BlogView, self).get_context_data(*args, **kwargs)
-        context["cat_menu"] = cat_menu
-        return context
 
 
 def CategoryView(request, cats):
@@ -92,7 +91,7 @@ def CategoryView(request, cats):
     })
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(CategoryMixin, DetailView):
     model = Post
     template_name = 'myApp/article_details.html'
     def get_context_data(self, *args, **kwargs):
@@ -125,22 +124,17 @@ class ArticleDetailView(DetailView):
                 'user_liked': user_liked,
             })
         #Return everything
-        context["cat_menu"] = cat_menu
         context["total_likes"] = total_likes
         context["liked"] = liked
         context["comments_with_pics"] = comments_with_pics
         return context
 
 
-class AddPost(CreateView):
+class AddPost(CategoryMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'myApp/add_post.html'
-    def get_context_data(self, *args, **kwargs):
-        cat_menu = Category.objects.all()
-        context = super(AddPost, self).get_context_data(*args, **kwargs)
-        context["cat_menu"] = cat_menu
-        return context
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -160,7 +154,7 @@ def LikeCommentView(request, pk):
     return HttpResponseRedirect(reverse('article_details', args=[comment.post.id]))
 
 
-class AddComment(CreateView):
+class AddComment(CategoryMixin, CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'myApp/add_comment.html'
@@ -180,25 +174,20 @@ class AddComment(CreateView):
         return reverse_lazy('article_details', kwargs={'pk': self.kwargs['pk']})
 
 
-class AddCategoryView(CreateView):
+class AddCategoryView(CategoryMixin, CreateView):
     model = Category
     template_name = 'myApp/add_category.html'
     fields = '__all__'
     success_url = reverse_lazy('home')
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(CategoryMixin, UpdateView):
     model = Post
     form_class = EditForm
     template_name = 'myApp/update_post.html'
-    def get_context_data(self, *args, **kwargs):
-        cat_menu = Category.objects.all()
-        context = super(UpdatePostView, self).get_context_data(*args, **kwargs) 
-        context["cat_menu"] = cat_menu
-        return context
-    
 
-class DeletePostView(DeleteView):
+
+class DeletePostView(CategoryMixin, DeleteView):
     model = Post
     template_name = 'myApp/delete_post.html'
     success_url = reverse_lazy('blog_view')
