@@ -96,7 +96,6 @@ class ArticleDetailView(CategoryMixin, DetailView):
     template_name = 'myApp/article_details.html'
     def get_context_data(self, *args, **kwargs):
         comments_with_pics = []
-        cat_menu = Category.objects.all()
         context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
         post = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = post.total_likes()

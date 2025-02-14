@@ -1,6 +1,6 @@
 # Mathify - Full Stack Django Web Application
 #### Live version of this project: [Live Server](https://djangowebsite-production.up.railway.app/)
-Mathify is a full-stack application developed using Python Django to help users collaborate on math problems and access built-in calculators for various math topics. Users can log in, participate in discussions, and use various math calculators to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
+Mathify is a full-stack application developed using Python Django to help users collaborate on math problems. Users can log in, participate in discussions, and use various math calculators to enhance their understanding of mathematics. The tools I used were Python Django, HTML, CSS, and JavaScript.
 
 ## Features:
 * User authentication (sign up, log in, and log out).
