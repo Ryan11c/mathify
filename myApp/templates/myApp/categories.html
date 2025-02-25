@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="{% url 'article_details' pk=post.pk %}">{{ post.title }}</a>
+                        <a href="{% url 'article_details' pk=post.pk %}">{{ post.title|safe|truncatewords:5 }}</a>
                         <span class="card-color"> ({{ post.total_likes }} likes)</span>
                     </h5>
                     <h6 class="card-color">
@@ -20,9 +20,9 @@
                         {% else %}
                             <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
                         {% endif %}
-                        {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}
+                        {{ post.author.username }} - {{ post.post_date }}
                     </h6>
-                    <p class="card-color">{{ post.body|safe|truncatewords:7 }}</p> 
+                    <p class="card-color">{{ post.body|safe|truncatewords:10 }}</p> 
 
                     {% if user.is_authenticated and user.id == post.author.id %}
                         <a href="{% url 'update_post' post.pk %}" class="card-link">Edit</a>

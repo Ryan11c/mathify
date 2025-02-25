@@ -10,7 +10,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">Mathify</a>
+          <a class="navbar-brand fw-bold fs-2" href="{% url 'home' %}">Mathify</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -18,12 +18,12 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog_view' %}">Explore</a>
+                <a class="nav-link fw-bold fs-5" href="{% url 'blog_view' %}">Explore</a>
               </li>
 
               {% if cat_menu %}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categories
                   </a>
                   <ul class="dropdown-menu">
@@ -37,11 +37,11 @@
 
               {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
+                  <a class="nav-link fw-bold fs-5" href="{% url 'add_post' %}">Add Post</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Profile
                   </a>
                   <ul class="dropdown-menu">
@@ -55,19 +55,19 @@
                 </li>
 
                 <li>
-                  <form method="post" action="{% url 'logout' %}" class="nav-item">
+                  <form method="post" action="{% url 'logout' %}" class="nav-item fw-bold fs-5">
                   {% csrf_token %}
-                  <button type="submit" class="nav-link">Logout</button>
+                  <button type="submit" class="nav-link fw-bold fs-5">Logout</button>
                   </form>
                 </li>
               {% else %}
               
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                  <a class="nav-link fw-bold fs-5" href="{% url 'register' %}">Register</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  <a class="nav-link fw-bold fs-5" href="{% url 'login' %}">Login</a>
                 </li>
               {%  endif %}
             </ul>
