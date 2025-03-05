@@ -10,8 +10,7 @@ body {
 }
 
 .background-image { /*This is to make the background image cover the entire screen.*/
-    backdrop-filter: blur(6.5px);
-    background-size: cover;
+    backdrop-filter: blur(8px);
     width: 100%;
     min-height: 100vh;
 }

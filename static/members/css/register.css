@@ -11,9 +11,9 @@ body {
 
 .background-image { /*same css from login.css. I just copied it over*/
     position: absolute; /*this makes the whole background blurred.. interesting*/
-    backdrop-filter: blur(6px);
-    background-size: cover;
+    backdrop-filter: blur(8px);
     width: 100%;
+    min-height: 100vh;
 }
 
 h1 {
