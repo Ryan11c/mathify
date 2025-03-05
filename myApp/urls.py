@@ -1,7 +1,7 @@
 #from . import views
 from django.urls import path
 #so long.. haha
-from .views import HomeView, BlogView, ArticleDetailView, AddPost, AddComment, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, LikeView, BinaryCalculator, DerivativeCalculator, RowReducer, Integral, Search, LikeCommentView
+from .views import HomeView, BlogView, ArticleDetailView, AddPost, AddComment, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, LikeView, BinaryCalculator, DerivativeCalculator, RowReducer, Integral, Search, LikeCommentView, About
 
 urlpatterns = [
     path('', HomeView, name='home'),
@@ -20,4 +20,5 @@ urlpatterns = [
     path('row-reducer/', RowReducer, name='row_reducer'),
     path('search', Search, name='search'),
     path('like_comment/<int:pk>/', LikeCommentView, name='like_comment'),
+    path('about/', About, name='about'),
 ]

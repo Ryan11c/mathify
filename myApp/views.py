@@ -63,6 +63,10 @@ def RowReducer(request):
     return render(request, 'myApp/row_reducer.html', {'cat_menu': Category.objects.all()})
 
 
+def About(request):
+    return render(request, 'myApp/about.html', {'cat_menu': Category.objects.all()})
+
+
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=pk)
     liked = False
