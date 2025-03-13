@@ -1,6 +1,6 @@
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
@@ -8,6 +8,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import SignUp, EditProfileForm, PasswordChangingForm, ProfilePageForm
 from myApp.models import Profile, Category
+from django.contrib.auth import login, authenticate
 
 
 class CreateProfilePageView(CreateView):
@@ -33,7 +34,16 @@ class EditProfilePageView(generic.UpdateView):
 class UserRegisterView(generic.CreateView):
     form_class = SignUp
     template_name = 'registration/register.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home') 
+    #log in the user when they successfully register
+    def form_valid(self, form):
+        self.object = form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(self.request, user)
+        return redirect(self.get_success_url())
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['cat_menu'] = Category.objects.all()
