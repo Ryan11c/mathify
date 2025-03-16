@@ -1,7 +1,7 @@
 :root {
     --dark-gray: #1a1a1a;
     --light-gray: #2a2a2a;
-    --yellow: #ffd700;
+    --yellow: white;
     --text-color: #ffffff;
 }
 
@@ -64,6 +64,6 @@ h1 {
 }
 
 .register-container button.btn:hover {
-    background-color: var(--text-color);
+    background-color: #b0b0b0;
     color: var(--dark-gray);
 }

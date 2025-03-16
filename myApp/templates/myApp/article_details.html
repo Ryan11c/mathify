@@ -30,20 +30,20 @@
     </div>
 
     <div class="back-like">
-        <a href="{% url 'blog_view' %}" class="btn btn-warning btn-sm">Back</a>
-        <button class="btn btn-warning btn-sm">{{ post.total_comments }} comment</button>
+        <a href="{% url 'blog_view' %}" class="btn btn-dark btn-sm">Back</a>
+        <button class="btn btn-dark btn-sm">{{ post.total_comments }} comment</button>
         <form action="{% url 'like_post' post.pk %}" method="POST">
             {% csrf_token %}
             {% if user.is_authenticated %}
                 {% if liked %}
                     <button type="submit", name="post_id", value="{{ post.id }}", 
-                    class="btn btn-warning btn-sm"> {{ total_likes }} like</button> 
+                    class="btn btn-dark btn-sm"> {{ total_likes }} like</button> 
                 {% else %}
                     <button type="submit", name="post_id", value="{{ post.id }}", 
-                    class="btn btn-warning btn-sm"> {{ total_likes }} like</button>
+                    class="btn btn-dark btn-sm"> {{ total_likes }} like</button>
                 {% endif %}
             {% else %}
-                    <button class="btn btn-warning btn-sm" disabled> {{ total_likes }} like</button>
+                    <button class="btn btn-dark btn-sm" disabled> {{ total_likes }} like</button>
             {% endif %}
         </form>
     </div>
@@ -61,29 +61,27 @@
             </h6>
         {% else %}
             {% for comment_data in comments_with_pics %}
-                <div class="comment-post">
-                    <strong>
-                        {% if comment_data.profile_pic %}
-                            <img src="{{ comment_data.profile_pic }}" width=30 height=30 class="rounded-circle">
-                        {% else %}
-                            <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle">
-                        {% endif %}
-                        {{ comment_data.comment.name }} - {{ comment_data.comment.date_added }}
-                    </strong>
-                    <br/>
-                    {{ comment_data.comment.body }}
-                    <br/>
-                    <form action="{% url 'like_comment' comment_data.comment.id %}" method="POST">
+            <div class="comment-post w-100 w-md-75 w-lg-50">
+                <strong class="d-flex align-items-center">
+                    {% if comment_data.profile_pic %}
+                        <img src="{{ comment_data.profile_pic }}" width=30 height=30 class="rounded-circle me-2">
+                    {% else %}
+                        <img src="{% static 'myApp/images/defaultpfp.png' %}" width=30 height=30 class="rounded-circle me-2">
+                    {% endif %}
+                    <span class="me-2">{{ comment_data.comment.name }} - {{ comment_data.comment.date_added }}</span>
+                    <form action="{% url 'like_comment' comment_data.comment.id %}" method="POST" class="d-inline">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
-                            <button type="submit" class="btn btn-warning btn-sm">
+                            <button type="submit" class="btn btn-light btn-sm">
                                 {{ comment_data.likes_count }} Like{% if comment_data.likes_count == 1 %}{% else %}s{% endif %}
                             </button>
                         {% else %}
-                            <button class="btn btn-warning btn-sm" disabled> {{ comment_data.likes_count }} like</button>
+                            <button class="btn btn-light btn-sm" disabled> {{ comment_data.likes_count }} like</button>
                         {% endif %}
                     </form>
-                </div>
+                </strong>
+                {{ comment_data.comment.body }}
+            </div>
             {% endfor %}
         {% endif %}
     </div>

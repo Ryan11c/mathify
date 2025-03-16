@@ -1,7 +1,7 @@
 :root {
     --dark-gray: #1a1a1a;
     --light-gray: #2a2a2a;
-    --yellow: #ffd700;
+    --yellow: white;
     --text-color: #ffffff;
 }
 
@@ -56,7 +56,7 @@ hr {
 .comment-post { 
     /*For the comment posts. I wanted to make it match the blog posts in the explore page.
       I think it looks good so far!*/
-    width: 65%;
+    max-width: 600px;
     background-color: var(--light-gray);
     margin-bottom: 1rem;
     color: var(--text-color);

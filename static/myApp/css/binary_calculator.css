@@ -1,7 +1,7 @@
 :root {
     --dark-gray: #1a1a1a;
     --light-gray: #2a2a2a;
-    --yellow: #ffd700;
+    --yellow: white;
     --text-color: #ffffff;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .container button {
-    background-color: #FFEB3B; 
+    background-color: var(--yellow); 
     color: #333; 
     border: none;
     cursor: pointer;
@@ -61,7 +61,7 @@ body {
 }
 
 .container button:hover {
-    background-color: #CDDC39;
+    background-color: #b0b0b0;
     transform: scale(1.05); 
 }
 
