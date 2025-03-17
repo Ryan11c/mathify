@@ -83,6 +83,8 @@ class BlogView(CategoryMixin, ListView):
     model = Post
     template_name = 'myApp/blog.html'
     ordering = ['-post_date']
+    #paginate: only 9 post shows up in one page. 
+    paginate_by = 9
 
 
 def CategoryView(request, cats):
