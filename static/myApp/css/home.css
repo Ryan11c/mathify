@@ -65,7 +65,7 @@ h2 {
 .calculator-title {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--yellow);
+    color: rgb(141, 185, 236);
 }
 
 .calculator-description {
